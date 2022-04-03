@@ -14,7 +14,7 @@ export default function App() {
       <NativeBaseProvider>
         <Tab.Navigator>
           <Tab.Screen name="Home" component={Home} height="100%" width="100%" />
-          <Tab.Screen name="Details" component={Details} />
+          <Tab.Screen name="Sounds" component={Details} />
         </Tab.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>

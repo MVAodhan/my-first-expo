@@ -8,9 +8,6 @@ export default function Home({ navigation }) {
     <Box width="100%" height="100%">
       <Center width="100%" height="100%">
         <Text>Home</Text>
-        <Button onPress={() => navigation.navigate('Details')}>
-          Go to Details
-        </Button>
       </Center>
     </Box>
   );
