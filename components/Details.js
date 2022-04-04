@@ -1,22 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import React from 'react';
 
 import { Audio } from 'expo-av';
 import { useAssets } from 'expo-asset';
 
-import { Button, Text, Center, Box } from 'native-base';
+import { Button, HStack, Center, Box } from 'native-base';
 
 export default function Details({ navigation }) {
   const [sound, setSound] = useState();
 
   const [assets, error] = useAssets([
     require('../assets/fbf.mp3'),
-    require('../assets/nyi.mp3'),
+    require('../assets/jasha.mp3'),
+    require('../assets/byebye.mp3'),
   ]);
 
   const playSound = async (assetNum) => {
-    console.log(assetNum);
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(assets[assetNum]);
     setSound(sound);
@@ -34,13 +34,19 @@ export default function Details({ navigation }) {
   }, [sound]);
   return (
     <Box width="100%" height="100%">
-      <Center width="100%" height="100%">
-        <Text>Details</Text>
-        <Button onPress={() => playSound(0)}>Play Sound</Button>
-        <Button mt="20px" onPress={() => playSound(1)}>
-          Play Sound
+      <HStack mt="10px" justifyContent="space-around" alignItems="center">
+        <Button h="50px" onPress={() => playSound(0)}>
+          White Claw Gabe
         </Button>
-      </Center>
+        <Button h="50px" onPress={() => playSound(1)}>
+          Jason x Trisha laugh
+        </Button>
+      </HStack>
+      <HStack mt="10px" justifyContent="space-around" alignItems="center">
+        <Button h="50px" onPress={() => playSound(2)}>
+          Trump Bye-Bye
+        </Button>
+      </HStack>
     </Box>
   );
 }
